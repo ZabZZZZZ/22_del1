@@ -3,18 +3,20 @@ public class App {
         var s = new java.util.Scanner(System.in);
         s.useLocale(java.util.Locale.ENGLISH);
 
+        //Variables!
         var gameFinished = false;
         int D1;
         int D2;
         int player1Points = 0;
         int player2Points = 0;
 
-        System.out.println("Hello and welcome to our dice game, we would like for you to name the two players:");
+        //Initialising names!
+        System.out.println("Hello and welcome to our dice game." + System.lineSeparator() + "We would like for you to name the two players, starting with Player 1:");
         var name1 = s.nextLine();
-        System.out.println("For the second player:");
+        System.out.println("Player 2:");
         var name2 = s.nextLine();
 
-        //Initialising names!
+        //Checking names!
         if(name1 == "" && name2 == ""){
             System.out.println(System.lineSeparator() + "You have not chosen any names, so the names will be set to P1 and P2");
             name1 = "P1";
