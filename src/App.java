@@ -1,5 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
+        //Scanner!
         var s = new java.util.Scanner(System.in);
         s.useLocale(java.util.Locale.ENGLISH);
 
@@ -13,7 +14,7 @@ public class App {
         //Initialising names!
         System.out.println("Hello and welcome to our dice game." + System.lineSeparator() + "We would like for you to name the two players, starting with Player 1:");
         var name1 = s.nextLine();
-        System.out.println("Player 2:");
+        System.out.println("And now, Player 2:");
         var name2 = s.nextLine();
 
         //Checking names!
@@ -47,7 +48,7 @@ public class App {
             if (player1Points >= 40){
                 break;
             }
-            System.out.println("Press Enter to continue or 'N' to stop the game.");
+            System.out.println("Press Enter to continue.");
             var ans1 = s.nextLine();
 
             D1 = Dice.rollDice();
@@ -59,7 +60,7 @@ public class App {
             if (player2Points >= 40){
                 break;
             }
-            System.out.println("Press Enter to continue or 'N' to stop the game.");
+            System.out.println("Press Enter to continue.");
             var ans2 = s.nextLine();
 
             if (player1Points >= 40 || player2Points >= 40)
