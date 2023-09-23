@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Dice {
-    static int rollDice(){
+    public static int rollDice(){
         Random rand = new Random();
         var number = rand.nextInt(7);
 

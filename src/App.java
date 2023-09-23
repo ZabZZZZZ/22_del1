@@ -18,26 +18,12 @@ public class App {
         var name2 = s.nextLine();
 
         //Checking names!
-        if(name1 == "" && name2 == ""){
-            System.out.println(System.lineSeparator() + "You have not chosen any names, so the names will be set to P1 and P2");
-            name1 = "P1";
-            name2 = "P2";
-        }
-        else if (name1 == ""){
-            System.out.println(System.lineSeparator() + "You have not chosen the name for Player 1, so it will be set to P1, Player 2 will be: " + name2 + ".");
-            name1 = "P1";
-        }
-        else if (name2 == ""){
-            System.out.println(System.lineSeparator() + "You have chosen the name for Player 1: " + name1 + ", and you have not chosen a name for Player 2, so it will be set to P2.");
-            name2 = "P2";
-        }
-        else{
-            System.out.println(System.lineSeparator() + "You have chosen the names of the players to be: Player 1: " + name1 + ", Player 2: " + name2 + ".");
-        }
-
-        System.out.println(System.lineSeparator() + name1 + " rolls first!");
+        name1 = NameChecker.checkName(name1, 1);
+        name2 = NameChecker.checkName(name2, 2);
 
         //The game begins!!
+        System.out.println(System.lineSeparator() + name1 + " rolls first!");
+
         do{
             D1 = Dice.rollDice();
             D2 = Dice.rollDice();
@@ -67,6 +53,7 @@ public class App {
             gameFinished = true;
         } while(!gameFinished);
         //Game is finished!!!
+        s.close();
 
         //Winner is being checked
         if(player1Points >= 40 && player2Points >= 40){
@@ -84,6 +71,5 @@ public class App {
         else {
             System.out.println(System.lineSeparator() + "The game did not finish. Total score: " + System.lineSeparator() + name1 + ": " + player1Points + System.lineSeparator() + name2 + ": " + player2Points);
         }
-        s.close();
     }
 }
