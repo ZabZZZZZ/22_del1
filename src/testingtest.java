@@ -1,29 +1,3 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-        //Scanner!
-        var s = new java.util.Scanner(System.in);
-        s.useLocale(java.util.Locale.ENGLISH);
-
-        //Variables!
-        var gameFinished = false;
-        int D1;
-        int D2;
-        int player1Points = 0;
-        int player2Points = 0;
-
-        //Initialising names!
-        System.out.println("Hello and welcome to our dice game." + System.lineSeparator() + "We would like for you to name the two players, starting with Player 1:");
-        var name1 = s.nextLine();
-        System.out.println("And now, Player 2:");
-        var name2 = s.nextLine();
-
-        //Checking names!
-        name1 = NameChecker.checkName(name1, 1);
-        name2 = NameChecker.checkName(name2, 2);
-
-        //The game begins!!
-        System.out.println(System.lineSeparator() + name1 + " rolls first!");
-
         do{
             do {
             D1 = Dice.rollDice();
@@ -72,11 +46,3 @@ public class App {
             if (player1Points >= 40 || player2Points >= 40)
             gameFinished = true;
         } while(!gameFinished);
-
-        //Game is finished!!!
-        s.close();
-
-        //Winner is being checked
-        WinnerChecker.checkWinner(player1Points, player2Points, name1, name2);
-    }
-}
