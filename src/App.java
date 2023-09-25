@@ -6,6 +6,8 @@ public class App {
 
         //Variables!
         var gameFinished = false;
+        var player1Winner = false;
+        var player2Winner = false;
         int D1;
         int D2;
         int player1Points = 0;
@@ -31,9 +33,13 @@ public class App {
             player1Points += (D1 + D2);
 
             System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
-            if (player1Points >= 40){
+            if (player1Points >= 40 && (D1 = D2)){
+                var player1Winner = true;
                 break;
+            } else if (player1Points >= 40 && (D1 != D2)) {
+                player1Points = 40;
             }
+            
             System.out.println("Press Enter to continue.");
             var ans1 = s.nextLine();
 
@@ -43,19 +49,24 @@ public class App {
             player2Points += (D1 + D2);
 
             System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
-            if (player2Points >= 40){
+            if (player2Points >= 40 && (D1 = D2)){
+                var player2Winner = true;
                 break;
+            } else if (player2Points >= 40 && (D1 != D2)) {
+                player2Points = 40;
             }
             System.out.println("Press Enter to continue.");
             var ans2 = s.nextLine();
 
-            if (player1Points >= 40 || player2Points >= 40)
+            if (player1Points >= 40 || player2Points >= 40) 
+
             gameFinished = true;
+
         } while(!gameFinished);
         //Game is finished!!!
         s.close();
 
         //Winner is being checked
-        WinnerChecker.checkWinner(player1Points, player2Points, name1, name2);
+        WinnerChecker.checkWinner(player1Winner, player2Winner, name1, name2);
     }
 }
