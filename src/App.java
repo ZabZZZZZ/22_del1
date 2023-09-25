@@ -38,6 +38,7 @@ public class App {
             if (player1Points >= 40){
                 break;
             }
+            //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6) {
                 if (player1LastRound) {
                     player1Won = true;
@@ -59,6 +60,7 @@ public class App {
             if (player2Points >= 40){
                 break;
             }
+            //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6) {
                 if (player2LastRound) {
                     player2Won = true;
