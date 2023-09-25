@@ -6,6 +6,10 @@ public class App {
 
         //Variables!
         var gameFinished = false;
+        var player1LastRound = false;
+        var player2LastRound = false;
+        var player1Won = false;
+        var player2Won = false;
         int D1;
         int D2;
         int player1Points = 0;
@@ -34,6 +38,15 @@ public class App {
             if (player1Points >= 40){
                 break;
             }
+            if (D1 == 6 && D2 == 6) {
+                if (player1LastRound) {
+                    player1Won = true;
+                    break;
+                } else {
+                    player1LastRound = true;
+                }
+            }
+
             System.out.println("Press Enter to continue.");
             var ans1 = s.nextLine();
 
@@ -46,6 +59,15 @@ public class App {
             if (player2Points >= 40){
                 break;
             }
+            if (D1 == 6 && D2 == 6) {
+                if (player2LastRound) {
+                    player2Won = true;
+                    break;
+                } else {
+                    player2LastRound = true;
+                }
+            }
+
             System.out.println("Press Enter to continue.");
             var ans2 = s.nextLine();
 
@@ -56,6 +78,13 @@ public class App {
         s.close();
 
         //Winner is being checked
+        if (player1Won) {
+            System.out.println(name1 + " has won by throwing two consecutive sixers!");
+        } else if (player2Won) {
+            System.out.println(name2 + " has won by throwing two consecutive sixers!");
+        }
         WinnerChecker.checkWinner(player1Points, player2Points, name1, name2);
     }
 }
+
+

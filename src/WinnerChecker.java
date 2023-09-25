@@ -12,8 +12,6 @@ public class WinnerChecker {
         else if (player2Points >= 40) {
             System.out.println(System.lineSeparator() + "The player " + name2 + " won the game with " + player2Points + " points and a point difference of " + (player2Points - player1Points) + " points. Congratulations " + name2 + "!!");
         }
-        else {
-            System.out.println(System.lineSeparator() + "The game did not finish. Total score: " + System.lineSeparator() + name1 + ": " + player1Points + System.lineSeparator() + name2 + ": " + player2Points);
-        }
+        
     }
 }
