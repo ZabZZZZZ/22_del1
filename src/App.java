@@ -16,8 +16,11 @@ public class App {
         int player1Points = 0;
         int player2Points = 0;
 
+        //Introduction and rules!!
+        Introduction.intro();
+
         //Initialising names!
-        System.out.println("Hello and welcome to our dice game." + System.lineSeparator() + "We would like for you to name the two players, starting with Player 1:");
+        System.out.println( "We would like for you to name the two players, starting with Player 1:");
         var name1 = s.nextLine();
         System.out.println("And now, Player 2:");
         var name2 = s.nextLine();
