@@ -1,6 +1,6 @@
 public class NameChecker {
     public static String checkName(String name, int playerNum) {
-        if (name == ""){
+        if (name.isEmpty()){
             System.out.println(System.lineSeparator() + "You have not chosen the name for Player "+ playerNum +", so it will be set to P" + playerNum + ".");
             return "P" + playerNum;
         }
