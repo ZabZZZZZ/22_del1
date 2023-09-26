@@ -35,14 +35,34 @@ public class App {
 
             player1Points += (D1 + D2);
 
-            //Checks for consecutive ones
             if (D1 == 1 && D2 == 1){
+                //Checks for consecutive 1's
                 player1Points = 0;
                 System.out.println(name1 + " scored two 1's and lost all their points :(");
             }
+            else if (player1Points >= 40 && (D1 == D2)){
+                //Checks if player won
+                System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
+                player1WinnerThroughTwoSame = true;
+                break;
+            }
+            else if (D1 == D2){
+                //Checks if player rolls two of the same excluding 1's and gives extra turn
+                System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
+                System.out.println(name1 + " rolled two of a kind. You get an extra turn!");
+                
+                var tempD1 = Dice.rollDice();
+                var tempD2 = Dice.rollDice();
+
+                player1Points += (tempD1 + tempD2);
+
+                System.out.println(System.lineSeparator() + name1 + " scores " + tempD1 + " and " + tempD2 + " on their extra turn and their total score is " + player1Points + ".");
+            }
             else{
+                //player rolled normally
                 System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
             }
+
             //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6 && player1LastRound){
                 player1Won = true;
@@ -55,12 +75,6 @@ public class App {
                 player1LastRound = false;
             }
 
-            //Checks for two same
-            if (player1Points >= 40 && (D1 == D2)){
-                player1WinnerThroughTwoSame = true;
-                break;
-            }
-
             System.out.println("Press Enter to continue.");
             var ans1 = s.nextLine();
 
@@ -69,14 +83,33 @@ public class App {
 
             player2Points += (D1 + D2);
 
-            //Checks for consecutive ones
             if (D1 == 1 && D2 == 1){
+            //Checks for consecutive ones
                 player2Points = 0;
                 System.out.println(name2 + " scored two 1's and lost all their points :(");
             }
+            else if (player2Points >= 40 && (D1 == D2)){
+                //Checks if player won
+                System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
+                player2WinnerThroughTwoSame = true;
+                break;
+            }
+            else if (D1 == D2){
+                //Checks if player rolls two of the same excluding 1's and gives extra turn
+                System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
+                System.out.println(name2 + " rolled two of a kind. You get an extra turn!");
+                
+                var tempD1 = Dice.rollDice();
+                var tempD2 = Dice.rollDice();
+
+                player2Points += (D1 + D2);
+                System.out.println(System.lineSeparator() + name2 + " scores " + tempD1 + " and " + tempD2 + " on their extra turn and their total score is " + player2Points + ".");
+            }
             else{
+                //Player rolled normally
                 System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
             }
+
             //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6 && player2LastRound){
                 player2Won = true;
@@ -87,12 +120,6 @@ public class App {
             }
             else {
                 player2LastRound = false;
-            }
-
-            //Checks for two same
-            if (player2Points >= 40 && (D1 == D2)){
-                player2WinnerThroughTwoSame = true;
-                break;
             }
 
             System.out.println("Press Enter to continue.");
