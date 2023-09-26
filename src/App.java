@@ -5,7 +5,6 @@ public class App {
         s.useLocale(java.util.Locale.ENGLISH);
 
         //Variables!
-        var gameFinished = false;
         var player1LastRound = false;
         var player2LastRound = false;
         var player1Won = false;
@@ -36,8 +35,14 @@ public class App {
 
             player1Points += (D1 + D2);
 
-            System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
-        
+            //Checks for consecutive ones
+            if (D1 == 1 && D2 == 1){
+                player1Points = 0;
+                System.out.println(name1 + " scored two 1's and lost all their points :(");
+            }
+            else{
+                System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
+            }
             //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6 && player1LastRound){
                 player1Won = true;
@@ -64,8 +69,14 @@ public class App {
 
             player2Points += (D1 + D2);
 
-            System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
-            
+            //Checks for consecutive ones
+            if (D1 == 1 && D2 == 1){
+                player2Points = 0;
+                System.out.println(name2 + " scored two 1's and lost all their points :(");
+            }
+            else{
+                System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
+            }
             //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6 && player2LastRound){
                 player2Won = true;
