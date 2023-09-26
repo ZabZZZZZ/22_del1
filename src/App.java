@@ -29,7 +29,11 @@ public class App {
             D2 = Dice.rollDice();
 
             player1Points += (D1 + D2);
-
+            //The player gets an extra turn if they roll two of a kind.
+            if (D1==D2) {
+                System.out.println("Congragulation! You rolled two of a kind. You get an extra turn.");
+                continue;
+            }
             System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
             if (player1Points >= 40){
                 break;
