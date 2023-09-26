@@ -1,5 +1,12 @@
 public class WinnerChecker {
-    public static void checkWinner(int player1Points, int player2Points, String name1, String name2) {
+    public static void checkWinner(int player1Points, int player2Points, String name1, String name2, boolean p1Won, boolean p2Won) {
+        if (p1Won){
+            System.out.println(name1 + " has won by throwing two consecutive sixes!");
+            return;
+        } else if (p2Won){
+            System.out.println(name2 + " has won by throwing two consecutive sixes!");
+            return;
+        }
         if(player1Points >= 40 && player2Points >= 40){
             if (player1Points > player2Points)
             System.out.println(System.lineSeparator() + "Both of the players reached above 40 points, but ultimately, " + name1 + " won the game with a point difference of " + (player1Points - player2Points) + " points.");
