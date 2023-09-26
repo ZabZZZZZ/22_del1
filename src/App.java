@@ -27,10 +27,16 @@ public class App {
         do{
             D1 = Dice.rollDice();
             D2 = Dice.rollDice();
-
-            player1Points += (D1 + D2);
-
-            System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
+            
+            if (D1 == 1 && D2 == 1 ) {
+                //player loses all points for rolling to 1's
+                player1Points = 0;
+                System.out.println(System.lineSeparator() + name1 + " rolled two 1's and lost all their points!");
+            } else {
+                player1Points += (D1 + D2);
+                System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
+            }
+            
             if (player1Points >= 40){
                 break;
             }
@@ -40,9 +46,14 @@ public class App {
             D1 = Dice.rollDice();
             D2 = Dice.rollDice();
 
-            player2Points += (D1 + D2);
-
-            System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
+            if (D1 == 1 && D2 == 1) {
+            // Player loses all points for rolling two 1's
+                player2Points = 0;
+                System.out.println(System.lineSeparator() + name2 + " rolled two 1's and lost all their points!");
+            } else {
+                player2Points += (D1 + D2);
+                System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
+            }
             if (player2Points >= 40){
                 break;
             }

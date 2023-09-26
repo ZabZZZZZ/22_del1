@@ -1,4 +1,4 @@
-public class twosixers{
+public class Twosixers{
 
 public static void checkForSixers() {
 
@@ -13,7 +13,7 @@ public static void checkForSixers() {
     while (true) { 
         rounds++;
 
-        if (player1Roll1 = 6 && player1Roll2 = 6) {
+        if (player1Roll1 == 6 && player1Roll2 == 6) {
             if (player1LastRound) {
             break;
         }
@@ -22,7 +22,7 @@ public static void checkForSixers() {
         player1LastRound = false;
     }
 
-        if (player2Roll1 = 6 && player2Roll2 = 6) {
+        if (player2Roll1 == 6 && player2Roll2 == 6) {
             if (player2LastRound) {
                 break;
             }
