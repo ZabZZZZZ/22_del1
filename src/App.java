@@ -10,6 +10,8 @@ public class App {
         var player2LastRound = false;
         var player1Won = false;
         var player2Won = false;
+        var player1WinnerThroughTwoSame = false;
+        var player2WinnerThroughTwoSame = false;
         int D1;
         int D2;
         int player1Points = 0;
@@ -35,16 +37,23 @@ public class App {
             player1Points += (D1 + D2);
 
             System.out.println(System.lineSeparator() + name1 + " scores " + D1 + " and " + D2 + " and their total score is " + player1Points + ".");
-            if (player1Points >= 40){
-                break;
-            }
+        
             //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6 && player1LastRound){
                 player1Won = true;
                 break;
             }
-            else {
+            else if (D1 == 6 && D2 == 6 && !player1LastRound){
                 player1LastRound = true;
+            }
+            else {
+                player1LastRound = false;
+            }
+
+            //Checks for two same
+            if (player1Points >= 40 && (D1 == D2)){
+                player1WinnerThroughTwoSame = true;
+                break;
             }
 
             System.out.println("Press Enter to continue.");
@@ -56,28 +65,32 @@ public class App {
             player2Points += (D1 + D2);
 
             System.out.println(System.lineSeparator() + name2 + " scores " + D1 + " and " + D2 + " and their total score is " + player2Points + ".");
-            if (player2Points >= 40){
-                break;
-            }
+            
             //Checks for consecutive sixers
             if (D1 == 6 && D2 == 6 && player2LastRound){
                 player2Won = true;
                 break;
             }
-            else {
+            else if (D1 == 6 && D2 == 6 && !player2LastRound){
                 player2LastRound = true;
+            }
+            else {
+                player2LastRound = false;
+            }
+
+            //Checks for two same
+            if (player2Points >= 40 && (D1 == D2)){
+                player2WinnerThroughTwoSame = true;
+                break;
             }
 
             System.out.println("Press Enter to continue.");
             var ans2 = s.nextLine();
-
-            if (player1Points >= 40 || player2Points >= 40)
-            gameFinished = true;
-        } while(!gameFinished);
+        } while(true);
         //Game is finished!!!
         s.close();
 
         //Winner is being checked
-        WinnerChecker.checkWinner(player1Points, player2Points, name1, name2, player1Won, player2Won);
+        WinnerChecker.checkWinner(name1, name2, player1Won, player2Won, player1WinnerThroughTwoSame, player2WinnerThroughTwoSame);
     }
 }
