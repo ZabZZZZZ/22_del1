@@ -1,5 +1,6 @@
 public class Introduction {
     public static void intro(){
+        System.out.println("IOOuterActive Presents: The Dice Game" + System.lineSeparator());
         System.out.println("Hello and welcome to our dice game.");
         System.out.println("The rules are as follows: " + System.lineSeparator());
         System.out.println("1. Two dice are rolled and their sum is added to a total points score of each player." + System.lineSeparator() + "The first player to reach 40, as well as score two of a kind, wins.");
